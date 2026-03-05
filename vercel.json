@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node",
+      "config": { "maxDuration": 300 }
+    },
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/api/health", "dest": "/api/health.js" },
+    { "src": "/api/research", "dest": "/api/research.js" },
+    { "src": "/api/script", "dest": "/api/script.js" },
+    { "src": "/api/audio", "dest": "/api/audio.js" },
+    { "src": "/(.*)", "dest": "/public/$1" }
+  ]
+}
